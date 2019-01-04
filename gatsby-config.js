@@ -9,6 +9,7 @@ module.exports = {
   
     plugins: [
       'gatsby-plugin-react-helmet',
+      { resolve: `gatsby-typography`},
   
       {
         resolve: `gatsby-plugin-manifest`,
@@ -23,6 +24,13 @@ module.exports = {
           icon: 'src/images/hn-icon.jpg', // This path is relative to the root of the site.
         },
       },
+      
+      { resolve: `gatsby-plugin-typography`,
+      options: {
+        pathToConfigModule: `src/utils/typography.js`,
+      },
+    },
+      
       'gatsby-plugin-offline',
     ],
   }

@@ -11,7 +11,6 @@ class header extends Component{
     }
     render(){
         return(
-
             <img src={logo} alt="how neighborly" />
         )
     }
