@@ -1,6 +1,8 @@
-How Neighborly.
+Howneighborly.com
 
-A PWA for posting or searching for locally available apartments or room/shares.
+A Progressive Web App for creating apartment listings and rooms for rent.
+
+
 
 
 
