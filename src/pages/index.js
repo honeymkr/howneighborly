@@ -4,9 +4,12 @@ import Layout from '../components/layout';
 const LandingPage = () => (
   <Fragment>
 
-    <p>
-      Post an ad for an available room, apt, house, or boat to rent. Search for available [items] to rent. Review your rental experiences for the benefit for others.
-    </p>
+<p>
+      Easily post an ad for your vacant apt or room share on Howneighborly. Locally interested
+      people can subscribe for updates so that they get a heads up about apartment/room opportunities 
+      that match both parties criteria/interests.
+      </p>
+      
   </Fragment>
 );
 
