@@ -1,6 +1,7 @@
-   require("dotenv").config({
-     path: `.env.${process.env.NODE_ENV}`,
-   })
+
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 
 module.exports = {
     siteMetadata: {
@@ -9,8 +10,7 @@ module.exports = {
   
     plugins: [
       'gatsby-plugin-react-helmet',
-      { resolve: `gatsby-typography`},
-  
+
       {
         resolve: `gatsby-plugin-manifest`,
         options: {
@@ -24,10 +24,10 @@ module.exports = {
           icon: 'src/images/hn-icon.jpg', // This path is relative to the root of the site.
         },
       },
-      
+
       { resolve: `gatsby-plugin-typography`,
       options: {
-        pathToConfigModule: `src/utils/typography.js`,
+        pathToConfigModule: `src/components/utils/typography.js`,
       },
     },
       
