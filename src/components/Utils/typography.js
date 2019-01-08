@@ -3,8 +3,7 @@ import fairyTheme from 'typography-theme-fairy-gates'
 
 const typography = new Typography(fairyTheme, { 
     
-    baseFontSize: "20px", 
-    baseLineHeight: "1.45",
+    baseFontSize: "20px",
     headerWeight: "500" 
 })
 
