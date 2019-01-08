@@ -1,3 +1,8 @@
+
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+ })
+
 module.exports = {
     siteMetadata: {
       title: 'How Neighborly',
@@ -18,7 +23,14 @@ module.exports = {
           splash_screen: 'icons',
           icon: 'src/images/hn-icon.jpg', // This path is relative to the root of the site.
         },
-      },  
+      },
+
+      { resolve: `gatsby-plugin-typography`,
+      options: {
+        pathToConfigModule: `src/components/utils/typography.js`,
+      },
+    },
+      
       'gatsby-plugin-offline',
     ],
   }
