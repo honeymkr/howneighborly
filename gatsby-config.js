@@ -27,12 +27,6 @@ module.exports = {
           icon: 'src/images/hn-icon.jpg', // This path is relative to the root of the site.
         },
       },
-
-      { resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/components/utils/typography.js`,
-      },
-    },
       
       'gatsby-plugin-offline',
     ],
