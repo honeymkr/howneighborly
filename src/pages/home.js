@@ -8,13 +8,13 @@ import {
 } from '../components/Session';
 import { withFirebase } from '../components/Firebase';
 import Messages from '../components/Messages';
+import CreateListing from '../components/Listing/CreateListing';
 
 class HomePageBase extends Component {
   _initFirebase = false;
 
   constructor(props) {
     super(props);
-
     this.state = {
       users: null,
     };
@@ -47,16 +47,9 @@ class HomePageBase extends Component {
   render() {
     return (
       <Fragment>
-        <div><h2>CREATE LISTING </h2></div>
-        <div><h2>VIEW LISTINGS </h2>
-        <ul>
-          <li>listing one</li>
-          <li>listing two</li>
-          <li>listng three</li>
-          
-          
-          
-          </ul> </div>
+        
+        <CreateListing  />
+
         <Messages users={this.state.users} />
 
       </Fragment>
@@ -74,10 +67,8 @@ const HomePage = compose(
 
 export default () => (
   <Layout>
+
     <HomePage />
-
-
-
 
   </Layout>
 );
