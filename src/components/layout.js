@@ -1,9 +1,20 @@
 import React, { Component, Fragment } from 'react'
-
 import Header from './Header/header'
 import Navigation from './Navigation';
 import getFirebase, { FirebaseContext } from './Firebase';
 import withAuthentication from './Session/withAuthentication';
+import styles from 'styled-components'
+
+
+const Wrapper = styles.section`
+padding: 2rem;
+max-width: 777px;
+background: gold;
+`;
+
+
+
+
 
 class Layout extends Component {
   state = {
@@ -32,6 +43,9 @@ class Layout extends Component {
 }
 
 const AppWithAuthentication = withAuthentication(({ children }) => (
+
+<Wrapper>
+  
   <Fragment>
     <Header />
 
@@ -39,6 +53,12 @@ const AppWithAuthentication = withAuthentication(({ children }) => (
     <hr />
     {children}
   </Fragment>
+
+
+</Wrapper>
+
+
+
 ));
 
 export default Layout;

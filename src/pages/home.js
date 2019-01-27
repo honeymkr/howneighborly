@@ -2,13 +2,15 @@ import React, { Component, Fragment } from 'react';
 import { compose } from 'recompose';
 
 import Layout from '../components/layout';
+
 import {
   withAuthorization,
   withEmailVerification,
 } from '../components/Session';
 import { withFirebase } from '../components/Firebase';
-import Messages from '../components/Messages';
+    //import Messages from '../components/Messages';
 import CreateListing from '../components/Listing/CreateListing';
+
 
 class HomePageBase extends Component {
   _initFirebase = false;
@@ -47,10 +49,10 @@ class HomePageBase extends Component {
   render() {
     return (
       <Fragment>
-        
         <CreateListing  />
 
-        <Messages users={this.state.users} />
+
+        
 
       </Fragment>
     );

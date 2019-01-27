@@ -1,10 +1,13 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import styles from '../Utils/styles.css'
 
 import { AuthUserContext } from '../Session';
 
 import * as ROUTES from '../../constants/routes';
 import * as ROLES from '../../constants/roles';
+
+
 
 const Navigation = () => (
   <AuthUserContext.Consumer>
@@ -21,8 +24,8 @@ const Navigation = () => (
 );
 
 const NavigationAuth = ({ authUser }) => (
-
-  <ul>
+  
+  <ul className="navlink">
     <li>
       <Link to={ROUTES.LANDING}>Landing</Link>
     </li>
@@ -36,13 +39,15 @@ const NavigationAuth = ({ authUser }) => (
       <li>
         <Link to={ROUTES.ADMIN}>Admin</Link>
       </li>
+
+
     )}
 
   </ul>
 );
 
 const NavigationNonAuth = () => (
-  <ul>
+  <ul className="navlink">
     <li>
       <Link to={ROUTES.LANDING}>Landing</Link>
     </li>
