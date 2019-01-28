@@ -1,13 +1,16 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import styles from '../Utils/styles.css'
+import styles from 'styled-components'
 
 import { AuthUserContext } from '../Session';
 
 import * as ROUTES from '../../constants/routes';
 import * as ROLES from '../../constants/roles';
 
-
+const NavListItem = styles.li`
+  display: inline-block;
+  margin: 0 0 0 1rem;
+`;
 
 const Navigation = () => (
   <AuthUserContext.Consumer>
@@ -25,22 +28,20 @@ const Navigation = () => (
 
 const NavigationAuth = ({ authUser }) => (
   
-  <ul className="navlink">
-    <li>
+  <ul>
+   <NavListItem>
       <Link to={ROUTES.LANDING}>Landing</Link>
-    </li>
-    <li>
+      </NavListItem>
+    <NavListItem>
       <Link to={ROUTES.HOME}>Home</Link>
-    </li>
-    <li>
+      </NavListItem>
+    <NavListItem>
       <Link to={ROUTES.ACCOUNT}>Account</Link>
-    </li>
+    </NavListItem>
             {authUser.roles.includes(ROLES.ADMIN) && (
-      <li>
+      <NavListItem>
         <Link to={ROUTES.ADMIN}>Admin</Link>
-      </li>
-
-
+        </NavListItem>
     )}
 
   </ul>
@@ -48,14 +49,16 @@ const NavigationAuth = ({ authUser }) => (
 
 const NavigationNonAuth = () => (
   <ul className="navlink">
-    <li>
+    <NavListItem>
       <Link to={ROUTES.LANDING}>Landing</Link>
-    </li>
-    <li>
+      </NavListItem>
+    <NavListItem>
       <Link to={ROUTES.SIGN_IN}>Sign In</Link>
-    </li>
+      </NavListItem>
 
-    <li><Link to={ROUTES.SIGN_UP}>Sign Up</Link></li>
+    <NavListItem>
+      <Link to={ROUTES.SIGN_UP}>Sign Up</Link>
+      </NavListItem>
   </ul>
 );
 
