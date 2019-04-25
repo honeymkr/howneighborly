@@ -1,40 +1,27 @@
-
-
-
-require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
-})
-
-
 module.exports = {
-    siteMetadata: {
-      title: 'How Neighborly',
+  siteMetadata: {
+    title: `How Neighborly`,
+    description: `The Future of Apartment Hunting.`,
+    author: `@honeymkr`,
+    siteUrl: `https://honeymkr.com`,
+  },
+  plugins: [
+    `gatsby-plugin-react-helmet`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "YOUR_GOOGLE_ANALYTICS_TRACKING_ID",
+      },
     },
-  
-    plugins: [
-      'gatsby-plugin-react-helmet',
-      {
-        resolve: `gatsby-plugin-manifest`,
-        options: {
-          name: 'How Neighborly App',
-          short_name: 'How-Neighorly',
-          start_url: '/',
-          background_color: '#ececec',
-          theme_color: '#ff1e4e',
-          display: 'standalone',
-          splash_screen: 'icons',
-          icon: 'src/images/hn-icon.jpg', // This path is relative to the root of the site.
-        },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images`,
       },
-      {
-        resolve: `gatsby-plugin-typography`,
-        options: {
-          pathToConfigModule: `src/components/Utils/typography.js`,
-        },
-      },
-
-      
-      'gatsby-plugin-offline',
-    ],
-  }
-
+    },
+  ],
+}
