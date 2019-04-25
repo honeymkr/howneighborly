@@ -1,20 +1,18 @@
-import React, { Fragment } from 'react';
-import Layout from '../components/layout';
+import React from "react"
 
-const LandingPage = () => (
-  <Fragment>
+import Layout from "../components/layout"
+import SEO from "../components/seo"
+import Hero from "../components/hero"
+import Content from "../components/content"
+import CallToAction from "../components/cta"
 
-    <p>
-      Easily post an ad for your vacant apt or room share on Howneighborly. Locally interested
-      people can subscribe for updates so that they get a heads up about apartment/room opportunities 
-      that match both parties criteria/interests.
-      </p>
-      
-  </Fragment>
-);
-
-export default () => (
+const IndexPage = () => (
   <Layout>
-    <LandingPage />
+    <SEO />
+    <Hero />
+    <Content />
+    <CallToAction />
   </Layout>
-);
+)
+
+export default IndexPage

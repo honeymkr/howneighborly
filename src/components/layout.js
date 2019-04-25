@@ -1,64 +1,45 @@
-import React, { Component, Fragment } from 'react'
-import Header from './Header/header'
-import Navigation from './Navigation';
-import getFirebase, { FirebaseContext } from './Firebase';
-import withAuthentication from './Session/withAuthentication';
-import styles from 'styled-components'
+/**
+ * Layout component that queries for data
+ * with Gatsby's StaticQuery component
+ *
+ * See: https://www.gatsbyjs.org/docs/static-query/
+ */
 
+import React from "react"
+import PropTypes from "prop-types"
+import { StaticQuery, graphql } from "gatsby"
 
-const Wrapper = styles.section`
-padding: 2rem;
-max-width: 777px;
-background: gold;
-`;
+import Footer from "./footer"
+import "../styles/default.css"
 
+const Layout = ({ children }) => (
+  <StaticQuery
+    query={graphql`
+      query SiteTitleQuery {
+        site {
+          siteMetadata {
+            title
+          }
+        }
+      }
+    `}
+    render={data => (
+      <>
+        <div
+          style={{
+            padding: "0 1rem",
+          }}
+        >
+          <main>{children}</main>
+        </div>
+        <Footer siteTitle={data.site.siteMetadata.title} />
+      </>
+    )}
+  />
+)
 
-
-
-
-class Layout extends Component {
-  state = {
-    firebase: null,
-  };
-
-  componentDidMount() {
-    const app = import('firebase/app');
-    const auth = import('firebase/auth');
-    const database = import('firebase/database');
-
-    Promise.all([app, auth, database]).then(values => {
-      const firebase = getFirebase(values[0]);
-
-      this.setState({ firebase });
-    });
-  }
-
-  render() {
-    return (
-      <FirebaseContext.Provider value={this.state.firebase}>
-        <AppWithAuthentication {...this.props} />
-      </FirebaseContext.Provider>
-    );
-  }
+Layout.propTypes = {
+  children: PropTypes.node.isRequired,
 }
 
-const AppWithAuthentication = withAuthentication(({ children }) => (
-
-<Wrapper>
-  
-  <Fragment>
-    <Header />
-
-    <Navigation />
-    <hr />
-    {children}
-  </Fragment>
-
-
-</Wrapper>
-
-
-
-));
-
-export default Layout;
+export default Layout
